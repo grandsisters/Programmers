@@ -15,6 +15,7 @@ arr1 = [
   [1, 2],
   [2, 3],
 ];
+
 arr2 = [
   [3, 4],
   [5, 6],
@@ -24,14 +25,22 @@ arr2 = [
 
 // arr2 = [[3], [4]];
 
-answer = [[]];
-
 function solution(arr1, arr2) {
+  var answer = [];
   for (let i = 0; i < arr1.length; i++) {
+    let arr3 = [];
     for (let j = 0; j < arr1[i].length; j++) {
-      answer[i][j] = [arr1[i][j] + arr2[i][j]];
+      arr3.push(arr1[i][j] + arr2[i][j]);
     }
+    answer.push(arr3);
   }
   return answer;
 }
-console.log(answer);
+console.log(solution(arr1, arr2));
+
+// 잘된 풀이
+// function solution(arr1, arr2) {
+//   return arr1.map((a, i) => a.map((b, j) => b + arr2[i][j]));
+// }
+
+// console.log(solution(arr1, arr2));
