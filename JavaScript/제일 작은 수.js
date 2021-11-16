@@ -16,12 +16,24 @@
 
 function solution(arr) {
   var answer = [];
-  if (arr[0] === 10) {
+  if (arr.length === 1) {
     answer.push(-1);
   } else {
-    arr.sort((a, b) => b - a);
-    arr.pop(arr[arr.length - 1]);
+    const min = Math.min(...arr);
+    const arrMin = arr.indexOf(min);
+
+    arr.splice(arrMin, 1);
     answer = arr;
   }
+  return answer;
+}
+
+// 짧게 근대 이제 좀 지저분한
+
+function solution(arr) {
+  var answer = [];
+  if (arr.length === 1) answer.push(-1);
+  arr.splice(arr.indexOf(Math.min(...arr)), 1);
+  answer = arr;
   return answer;
 }
